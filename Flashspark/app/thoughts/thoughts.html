@@ -1,0 +1,28 @@
+﻿<section id="thoughts-view"data-ng-controller="thoughts as vm">
+    <div class="container article-summary-panel center-block element-center">
+            <div data-ng-repeat="s in vm.articles" class="col-md-3 img-responsive articlesummary clearfix">
+                <div class="article-summary-header-panel">
+                    <i class="fa-4x icon-mybulb site-bulb center-block element-center"></i>
+                    <h3 setcleanurl="props" data-ng-model="s.Title" text={{s.Title}} flag="1" style="display:block; margin-left: 10px;"></h3>
+                    <code class="timestamp">{{s.DatePosted}}</code>
+                </div>
+                <hr />
+                <br />
+                <p style="margin-top:5px" data-ng-bind-html="s.Description"></p>
+                <p setcleanurl="props" data-ng-model="s.Title" text="Read More.." flag="0" class="pull-right"></p>  
+            </div>
+        <button class="btn btn-block btn-primary btn-morearticles" data-ng-click="vm.getMoreArticles()" data-ng-show=vm.display_button>View More Articles</button>
+
+        <div data-ng-repeat="s in vm.more_articles" class="col-md-3 img-responsive articlesummary clearfix" data-ng-show=vm.display_more_articles>
+            <div class="article-header-panel">
+                <i class="fa-4x icon-mybulb site-bulb center-block element-center"></i>
+                <h3 setcleanurl="props" data-ng-model="s.Title" text={{s.Title}} flag="1" style="display:block; margin-left: 10px;"></h3>
+                <code class="timestamp">{{s.DatePosted}}</code>
+            </div>
+            <hr />
+            <br />
+            <p style="margin-top:5px ">{{s.Description}}</p>
+            <p setcleanurl="props" data-ng-model="s.Title" text="Read More.." flag="0" class="pull-right"></p>
+        </div>
+        </div>
+ </section>

@@ -1,0 +1,28 @@
+@font-face {
+	font-family: 'bulbpack';
+	src:url('../fonts/bulbpack.eot?h75abl');
+	src:url('../fonts/bulbpack.eot?#iefixh75abl') format('embedded-opentype'),
+		url('../fonts/bulbpack.woff?h75abl') format('woff'),
+		url('../fonts/bulbpack.ttf?h75abl') format('truetype'),
+		url('../fonts/bulbpack.svg?h75abl#bulbpack') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'bulbpack';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mybulb:before {
+	content: "\e92b";
+}

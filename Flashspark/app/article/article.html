@@ -1,0 +1,23 @@
+﻿<section id="thoughts-view" data-ng-controller="article as vm">
+    <div class="container">
+        <div data-ng-repeat="s in vm.articles" class="row article-panel">
+            <div class="col-md-12 col-sm-12 col-lg-12 article-body-panel">
+                <p class="article-header">
+                    <a href="/#!/thoughts"><i class="icon-mybulb fa-4x site-bulb"></i></a> 
+                    <h1 class="article-header">{{s.Title}}</h1>
+                </p>
+                <code>{{s.DatePosted}}</code>
+                <p class="article-body" data-ng-bind-html="s.Body"></p>
+                <hr />
+                <div data-ng-show="vm.displayback" data-ng-click="vm.back(vm.navigatearticle_previous)" id="backarrow"><i class="fa fa-1x fa-caret-left pull-left"></i><span class="pull-left">{{vm.navigatearticle_previous}}</span></div>
+                <div data-ng-show="vm.displayforward" data-ng-click="vm.forward(vm.navigatearticle_next)" id="forwardarrow"><i class="fa fa-1x fa-caret-right pull-right"></i><span class="pull-right">{{vm.navigatearticle_next}}</span></div>
+            </div>  
+            <div class="comment-box">
+                <dir-disqus disqus-shortname="flashspark"
+                            disqus-identifier={{s.Title}}
+                            ready-to-bind="true">
+                </dir-disqus>
+            </div>      
+            </div>
+        </div>
+</section>
