@@ -4,6 +4,7 @@
     
     <hr class="line"/>
     <div class="article-summary-container">
+        {{vm.test}}
         <i class="fa fa-4x fa-spin fa-spinner loading-icon" data-ng-hide=vm.setspinner1 data-ng-cloak></i>
         <div data-ng-repeat="s in vm.articles" class="row img-responsive">
             <div class="col-md-9 articlesummary center-block text-center">
@@ -17,7 +18,7 @@
                 <p setcleanurl="props" data-ng-model="::s.Title" text="...Read More" flag="0"></p>
             </div>
         </div>
-        <button class="btn btn-block btn-default btn-morearticles center-block" data-ng-click="vm.getMoreArticles()" data-ng-show=vm.display_button>
+        <button class="btn btn-block btn-default btn-morearticles center-block" data-ng-click="vm.getMoreArticles()" data-ng-show={{vm.display_button}}>
             View More Articles
         </button>
         <i class="fa fa-4x fa-spin fa-spinner loading-icon" data-ng-hide=vm.setspinner2 data-ng-cloak></i>
