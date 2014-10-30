@@ -1,15 +1,18 @@
 ﻿(function () {
     'use strict';
     var controllerId = 'article';
-    angular.module('app').controller(controllerId, ['$rootScope', '$routeParams', '$location', '$http', 'common', article]);
+    angular.module('app').controller(controllerId, ['$rootScope', '$routeParams', '$location', '$http', '$sce', 'common','dbdata', article]);
 
-    function article($rootScope, $routeParams, $location, $http, common) {
-        var articleTitleParams = $routeParams.article.replace(/-/g, ' ');
-        var articletitleUpper = articleTitleParams.substring(0, 1).toUpperCase() + articleTitleParams.substring(1);
-        var vm = this;
+    function article($rootScope, $routeParams, $location, $http,$sce, common, dbdata) {
+        var articleTitleParams = $routeParams.article.replace(/-/g, ' '),
+            articletitleUpper = articleTitleParams.substring(0, 1).toUpperCase() + articleTitleParams.substring(1),
+            vm = this;
         vm.articles = [];
         vm.navigatearticle_next = [];
         vm.navigatearticle_previous = [];
+        vm.pageheader = articletitleUpper;
+        $rootScope.title = articletitleUpper + " | Flashspark-Abhijit Sinha";
+        vm.url = $rootScope.location;
 
         activate();
         vm.contentLoaded = false;
@@ -19,8 +22,9 @@
         }
 
         function getArticle() {
-            $http.get('/api/Values/GetArticle', { params: { param_articletitle: articletitleUpper } }).success(function (data) {
+            $http.get('/api/Values/GetArticle', { params: { paramArticletitle: articletitleUpper } }).success(function (data) {
                 vm.articles = data;
+                vm.body = $sce.trustAsHtml(data[0].Body);
                 setNavigation(vm.articles[0].Id);
                 vm.contentLoaded = true;
                 return vm.articles;
@@ -53,18 +57,24 @@
 
 
         function setNavigationArrow(articleIdSetarrow) {
-           var articleIdMax = window.name;
+            $http.get('/api/Values/GetAllArticleCount', { cache: true }).success(function (data) {
 
-           if (articleIdSetarrow == 1) {
-                vm.displayforward = true;
+           if (articleIdSetarrow == 1 && data == 1) {
+                vm.displayforward = false;
                 vm.displayback = false;
-           } else if (articleIdMax == articleIdSetarrow) {
+           }
+           else if (articleIdSetarrow == 1 && data > 1) {
+               vm.displayforward = true;
+               vm.displayback = false;
+           }
+           else if (data == articleIdSetarrow) {
                 vm.displayforward = false;
                 vm.displayback = true;
             } else {
                 vm.displayforward = true;
                 vm.displayback = true;
-            }
+           }
+            });
             };
 
             vm.back = function (title) {

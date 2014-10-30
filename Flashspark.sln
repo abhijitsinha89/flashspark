@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flashspark", "Flashspark\Flashspark.csproj", "{E7E3CB9E-0376-4C8C-9F20-5842D2DF5751}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB", "DB\DB.csproj", "{524FFC85-DD2E-40C7-A720-C9BCA94F59D9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6EA000D0-248C-4463-992A-E8F8C6C8C902}"
 	ProjectSection(SolutionItems) = preProject
@@ -13,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6EA000
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB", "DB\DB.csproj", "{B7573AAB-24C9-42F3-BD5F-DF8420E0B73D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,10 +24,10 @@ Global
 		{E7E3CB9E-0376-4C8C-9F20-5842D2DF5751}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7E3CB9E-0376-4C8C-9F20-5842D2DF5751}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7E3CB9E-0376-4C8C-9F20-5842D2DF5751}.Release|Any CPU.Build.0 = Release|Any CPU
-		{524FFC85-DD2E-40C7-A720-C9BCA94F59D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{524FFC85-DD2E-40C7-A720-C9BCA94F59D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{524FFC85-DD2E-40C7-A720-C9BCA94F59D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{524FFC85-DD2E-40C7-A720-C9BCA94F59D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7573AAB-24C9-42F3-BD5F-DF8420E0B73D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7573AAB-24C9-42F3-BD5F-DF8420E0B73D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7573AAB-24C9-42F3-BD5F-DF8420E0B73D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7573AAB-24C9-42F3-BD5F-DF8420E0B73D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

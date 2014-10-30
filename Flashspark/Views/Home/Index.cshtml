@@ -1,8 +1,14 @@
-﻿<div data-ng-controller="shell as vm">
+﻿<div ng-cloak data-ng-controller="shell as vm" class="shell">
     <header class="clearfix">
-        <div data-ng-include="'/app/layout/topnav.html'"></div>
+        <a href="/"><i class="icon-mybulb home-bulb cover-bulb" ng-if="location.path() !== '/'"></i></a>
     </header>
+    
+    <div data-ng-include="'/app/layout/topnav.html'" ng-if="location.path() !== '/'" ng-cloak>
+
+    </div>
     <section id="content">
-        <div data-ng-view class="shuffle-animation fixmarginfortabs" data-ng-show="true" id="tabcontainer"></div>
+
+        <div data-ng-view class="shuffle-animation" data-ng-show="true" id="tabcontainer" ng-cloak></div>
     </section>
-</div>
+    <div data-ng-include="'/app/layout/footer.html'" ng-cloak class="hidden"></div>
+    </div>

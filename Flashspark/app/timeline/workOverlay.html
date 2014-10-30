@@ -1,0 +1,8 @@
+﻿<div>
+    <span class="overlay-work-title">{{vm.workOverlayDisplay.title}}</span>
+    <p data-ng-bind-html="vm.trustAsHtml(vm.workOverlayDisplay.URL)"></p>
+    <div class="row">
+        <img ng-src={{vm.workOverlayDisplay.ImgURL}} class="col-md-6 overlay-work-img" />
+        <p class="col-md-6 overlay-work-description">{{vm.workOverlayDisplay.Description}}</p>
+    </div>
+</div>

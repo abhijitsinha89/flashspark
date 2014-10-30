@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Objects;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -24,22 +25,22 @@ namespace Flashspark.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<GetArticle_Result> GetArticle(string param_articletitle)
+        public IEnumerable<GetArticle_Result> GetArticle(string paramArticletitle)
         {
             using (var pe = new ProfileEntities())
             {
-                var article = pe.GetArticle(param_articletitle).ToList();
+                var article = pe.GetArticle(paramArticletitle).ToList();
                 return article;
             }
            
         }
 
         [HttpGet]
-        public IEnumerable<GetAllArticlesExceptTop5_Result> GetRestoftheArticles()
+        public IEnumerable<GetAllArticlesExceptTop6_Result> GetRestoftheArticles()
         {
             using (var pe = new ProfileEntities())
             {
-                var article = pe.GetAllArticlesExceptTop5().ToList();
+                var article = pe.GetAllArticlesExceptTop6().ToList();
                 return article;
             }
 
@@ -56,15 +57,50 @@ namespace Flashspark.Controllers
 
         }
 
-        // POST api/values
-        public void Post([FromBody]string value)
+        [HttpGet]
+        public IEnumerable<Aboutme_Result> AboutMe()
         {
+            using (var pe = new ProfileEntities())
+            {
+                var about = pe.Aboutme().ToList();
+                return about;
+            }
+
         }
 
-        // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
+        [HttpGet]
+        public IEnumerable<ViewCurrentCity_Result> GetCurrentCity()
         {
+            using (var pe = new ProfileEntities())
+            {
+                var city = pe.ViewCurrentCity().ToList();
+                return city;
+            }
+
+        }
+
+        [HttpGet]
+        public IEnumerable<ViewAllFaq_Result> GetAllFaq()
+        {
+            using (var pe = new ProfileEntities())
+            {
+                var faq = pe.ViewAllFaq().ToList();
+                return faq;
+            }
+
+        }
+
+        [HttpGet]
+        public int GetAllArticleCount()
+        {
+            using (var pe = new ProfileEntities())
+            {
+               int count = pe.GetAllCountArticle().FirstOrDefault() ?? -1 ;
+                return count;
+            }
+
         }
 
     }
+
 }

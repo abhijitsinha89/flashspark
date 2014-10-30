@@ -5,18 +5,18 @@
         // Angular modules 
         'ngAnimate',        // animations
         'ngRoute',          // routing
-        'ngSanitize',       // sanitizes html bindings (ex: sidebar.js)
+        'ngSanitize',       // sanitizes html bindings
+        'ngResource',
 
         // Custom modules 
         'common',           // common functions, logger
 
         // 3rd Party Modules
-        'ui.bootstrap',      // ui-bootstrap (ex: carousel, pagination, dialog)
         'ngMap'
     ]);
     
     // Handle routing errors and success events
-    app.run(['$route',  function ($route) {
-            // Include $route to kick start the router.
-        }]);        
+    app.run(['$route', '$rootScope', '$location', function ($route, $rootScope, $location) {
+        $rootScope.location = $location;
+    }]);
 })();

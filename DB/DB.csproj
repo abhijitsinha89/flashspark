@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{524FFC85-DD2E-40C7-A720-C9BCA94F59D9}</ProjectGuid>
+    <ProjectGuid>{B7573AAB-24C9-42F3-BD5F-DF8420E0B73D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DB</RootNamespace>
@@ -48,10 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Article.cs">
+    <Compile Include="Aboutme_Result.cs">
       <DependentUpon>SiteDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="GetAllArticlesExceptTop5_Result.cs">
+    <Compile Include="GetAllArticlesExceptTop6_Result.cs">
       <DependentUpon>SiteDB.tt</DependentUpon>
     </Compile>
     <Compile Include="GetArticle_Result.cs">
@@ -75,6 +75,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SiteDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewAllFaq_Result.cs">
+      <DependentUpon>SiteDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewCurrentCity_Result.cs">
+      <DependentUpon>SiteDB.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +109,12 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

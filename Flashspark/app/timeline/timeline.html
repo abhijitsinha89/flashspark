@@ -12,139 +12,40 @@
     }
 </script>-->
 
-<section id="dashboard-view"  data-ng-controller="timeline as vm">
-    <section>
-        <div class="container timeline-master-panel">
-            <ul class="timeline">
-                <li>
-                    <div class="timeline-badge"><i class="fa fa-star"></i></div>
-                    <div class="timeline-panel">
-                        <h4 class="timeline-title">2014</h4>
-                        <div class="timeline-body">
-                            <p>
-                                <i class="fa icon-mybulb site-bulb"></i> Reviving my old web magazine www.visivoline.com in a new package with the technology web loves! AngularJS <i class="fa fa-heart"></i>
-                                <hr>
-                                <i class="fa icon-mybulb site-bulb"></i> Working with Kamal Pandey on a low cost e-shopping system. A web app which can manipulate tons of product data with ease
-                                <hr>
-                                <i class="fa icon-mybulb site-bulb"></i> Excited to Work on mobile platfroms
-                                <hr>
-                                <i class="fa icon-mybulb site-bulb"></i>Immediate Targets: Angular JS and Node JS
-                            </p>
-
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="timeline-badge"><i class="fa fa-star"></i></div>
-                    <div class="timeline-panel">
-                        <h4 class="timeline-title">2013</h4>
-                        <div class="timeline-body">
-                            <p>
-                                <i class="fa icon-mybulb site-bulb"></i>   <a href="http:\\www.vishaltraders.org"> Designed vishaltraders</a>
-                                <hr>
-                                <i class="fa icon-mybulb site-bulb"></i>  Launched <a href="http:\\www.flashspark.in"> FlashSpark</a> It is built on ASP.NET MVC Web API and AngularJS and relies a lot on SVG and Bootstrap CSS
-                            </p>
-
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="timeline-badge"><i class="fa fa-star"></i></div>
-                    <div class="timeline-panel">
-                        <h4 class="timeline-title">2012</h4>
-                        <div class="timeline-body">
-                            <p>
-                                <i class="fa icon-mybulb site-bulb"></i>   Completed a project dessertation on creating on an <em>
-                                                                                                                            Low Cost Effective Home Automation System.
-                                                                                                                           </em> It was built primarily on Matlab and C#, Drupal for front end design, Atmega 16 MCU for hardware. 
-                                <hr>
-                                <i class="fa icon-mybulb site-bulb"></i>   Graduated from Amity University, Noida
-                                <hr>
-                                <i class="fa icon-mybulb site-bulb"></i> Joined Wipro Technologies as a Project Engineer in Hyderabad
-                                <hr>
-                                <i class="fa icon-mybulb site-bulb"></i>Trained in MS Technolgies
-                                <hr>
-                                <i class="fa icon-mybulb site-bulb"></i> Joined a Microsoft based project as a test Engineer
-                            </p>
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="timeline-badge"><i class="fa fa-star"></i></div>
-                    <div class="timeline-panel">
-                            <h4 class="timeline-title">2011</h4>
-                        <div class="timeline-body">
-                            <p>
-                                <i class="fa icon-mybulb site-bulb"></i>   designed and administered www.weatamity.com(we used to post assignments and old testpapers for public benefit! :P )
-                                <hr>
-                                <i class="fa icon-mybulb site-bulb"></i> Internship in Whirlpool of India
-                            </p>
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="timeline-badge"><i class="fa fa-star"></i></div>
-                    <div class="timeline-panel">
-                        <h4 class="timeline-title">2010</h4>
-                        <div class="timeline-body">
-                            <p>
-                                <i class="fa icon-mybulb site-bulb"></i>  Inhouse project 'German to English translater'
-                            </p>
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="timeline-badge"><i class="fa fa-star"></i></div>
-                    <div class="timeline-panel">
-                        <h4 class="timeline-title">2009</h4>
-                        <div class="timeline-body">
-                            <p>
-                                <i class="fa icon-mybulb site-bulb"></i>  Started an online magazine with Utkarsh bhatia, www.visivonline.com,
-                                we are in the process of reviving it again
-                                <hr>
-                                <i class="fa icon-mybulb"></i> Designed a wired with Abhijeet Verma for IIT Kanpur techfest 'Techkriti', great learning experience
-                            </p>
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="timeline-badge"><i class="fa fa-star"></i></div>
-                    <div class="timeline-panel">
-                        <h4 class="timeline-title">2008</h4>
-                        <div class="timeline-body">
-                            <p>
-                                <i class="fa icon-mybulb site-bulb"></i> Joined Engineering in 'Electronics and Communication'from Amity University
-                            </p>
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="timeline-badge"><i class="fa fa-star"></i></div>
-                    <div class="timeline-panel">
-                        <h4 class="timeline-title">2007</h4>
-                        <div class="timeline-body">
-                            <i class="fa icon-mybulb site-bulb"></i>    Completed Schooling from DPSG
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="timeline-badge"><i class="fa fa-star"></i></div>
-                    <div class="timeline-panel">
-                        <h4 class="timeline-title">1989</h4>
-                        <div class="timeline-body">
-                            <i class="fa icon-mybulb site-bulb"></i>  Born! :P
-                        </div>
-                    </div>
-                </li>
+<section id="dashboard-view" class="timeline-panel" data-ng-controller="timeline as vm">
+    <h1 class="center-block text-center section-title">{{::vm.pageheader}}</h1>
+    <hr class="line" />
+    <div class="timeline-container">
+        <div>
+            <ul ng-init="tab = 2014" class="timeline-year-container">
+                <li ng-class="{active:tab===2014}" ng-click="tab = 2014" class="circle-increase-effect timeline-year">2014</li>
+                <li ng-class="{active:tab===2013}" ng-click="tab = 2013" class="circle-increase-effect timeline-year">2013</li>
+                <li ng-class="{active:tab===2012}" ng-click="tab = 2012" class="circle-increase-effect timeline-year">2012</li>
+                <li ng-class="{active:tab==='Daysofyore'}" ng-click="tab = 'Daysofyore'" class="circle-increase-effect timeline-year">Days of yore!</li>
             </ul>
         </div>
-    </section>
+        <span class="col-md-offset-1">UPDATES</span>
+        <span class="col-md-offset-7">WORK</span>
+        <ul class="timeline-detail-container">
+            <li class="timeline-detail row" data-ng-repeat="s in vm.timeline" ng-show="tab == s.Year">
+                <div class="col-md-7 timeline-updates">
+                    <div data-ng-repeat="t in s.Updates">
+                        <div data-ng-bind-html="vm.trustAsHtml(t.Description)"></div>
+                        <hr />
+                    </div>
+                </div>
+                <div class="col-md-5 timeline-work">
+                    <ul>
+                        <li class="img-responsive" data-ng-click="vm.Overlay(u.id)" data-ng-repeat="u in s.Work">
+                            <img class="image-thumbnail" ng-src={{u.ImgURL}} />
+                            
+                        </li>
+                        <work-overlay show='vm.ShowOverlay'>
+                            <div data-ng-include="'/app/timeline/workOverlay.html'"></div>
+                        </work-overlay>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
 </section>

@@ -1,21 +1,84 @@
-﻿<section id="dashboard-view" data-ng-controller="home as vm">
-    <div class="container" style="width:100%">
-        <div class="home-panel">
-            <div class="me">
-                Hi! You have reached Abhijit Sinha <br />
-                <div class="home-tag">I learn, write and try to build on my interests <i class="fa fa-smile-o"></i></div>
-            </div>
+﻿<section id="dashboard-view" class="home-panel" data-ng-controller="home as vm">
+    
+    <a href="/"><i class="icon-mybulb home-bulb cover-bulb"></i></a>
+    <nav data-ng-controller="topnav as vm" class="navHomePage row">
+        <ul class="nav-container-1 col-md-6">
+            <li class="front-navagation-container">
+                <a href="/thoughts" class="circle-increase-effect front-navagation">
+                    <i class="fa fa-book fa-2x"></i>
+                    <br />
+                    Journal
+                </a>
+            </li>
+            <li class="front-navagation-container">
+                <a href="/about" class="circle-increase-effect front-navagation">
+                    <i class="fa fa-2x fa-user"></i>
+                    <br />
+                    Me
+                </a>
+            </li>
+        </ul>
+        <ul class="nav-container-2 col-md-6">
+            <li class="front-navagation-container">
+                <a href="/timeline" class="circle-increase-effect front-navagation">
+                    <i class="fa-1x glyphicon glyphicon-tasks"></i>
+                    <br />
+                    Yearbook
+                </a>
+            </li>
+            <li class="front-navagation-container">
+                <a href="/contact" class="circle-increase-effect front-navagation">
+                    <i class="fa fa-2x fa-comments-o"></i>
+                    <br />
+                    Lets talk
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <hr class="line"/>
+    <p class="home-name center-block text-center" > &lt ABHIJIT SINHA /&gt</p>
+    
+    <div class="tagline center-block">
+        <strong> .internet .me { </strong> <br />
+        <p>
+            <strong>learn</strong> : everything !important; <br />
+            <strong>write</strong> : about my inspiration and aspirations; <br />
+            <strong>build</strong> : a thought process;<br />
+            <strong>code</strong>  &nbsp: an extention of how I want the pixels to be painted; <br />
+        </p>
+        <strong> } </strong>
 
-
-            <div class="quote">
-                <em>
-                    "I can see it. This one moment when you know you’re not a sad story. You are alive.
-                    And you stand up and see the lights on the buildings and everything that makes you wonder.
-                    And you’re listening to that song, and that drive with the people who you love most in this world.
-                    And in this moment, I swear, we are infinite.” <br />
-                </em>
-                <p>-Stephen Chbosky, The Perks of Being a Wallflower</p>
-            </div>
-        </div>
     </div>
+        <ul class="social text-center">
+            <li>
+                <a href="http://www.linkedin.com/in/abhijitsinha89" target="_blank" title="Linkedin" class="ln">
+                    <i class="fa fa-linkedin-square"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://plus.google.com/u/0/116468781900040054373" target="_blank" title="Google+" class="g">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/abhijitsinha89" target="_blank" title="Facebook" class="fb">
+                    <i class="fa fa-facebook"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/abhijitsinha89" target="_blank" title="Github" class="git">
+                    <i class="fa fa-github"></i>
+                </a>
+            </li>
+            <li>
+                <a href="mailto:webuild@flashspark.in" target="_top" title="Lets build something awesome" class="mail1">
+                    <i class="fa fa-envelope"></i>
+                </a>
+            </li>
+            <li>
+                <a href="mailto:abhijit.sinha@outlook.com" target="_top" title="There is a work opportunity" class="mail2">
+                    <i class="fa fa-envelope-o mail2"></i>
+                </a>
+            </li>
+        </ul>
 </section>

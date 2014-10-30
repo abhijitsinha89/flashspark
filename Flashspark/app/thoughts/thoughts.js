@@ -1,14 +1,18 @@
 ﻿(function () {
     'use strict';
     var controllerId = 'thoughts';
-    angular.module('app').controller(controllerId, ['$rootScope', '$http','common', thoughts]);
+    angular.module('app').controller(controllerId, ['$rootScope','common','dbdata', thoughts]);
 
-    function thoughts($rootScope, $http, common) {
+    function thoughts($rootScope, common, dbdata) {
         var vm = this;
         vm.articles = [];
         vm.more_articles = [];
-        vm.title_link = [];
         vm.display_more_articles = "false";
+        vm.setspinner1 = true;
+        vm.setspinner2 = true;
+        vm.display_button = false;
+        vm.pageheader = "A pinch of salt and some nimbu paani";
+        $rootScope.title = "Journal | Flashspark-Abhijit Sinha";
         activate();
 
         function activate() {
@@ -17,44 +21,28 @@
         }
 
         function getArticles() {
-            $http.get('/api/Values/GetTopArticles').success(function (data) {
+            vm.setspinner1 = false;
+            dbdata.getData('GetTopArticles').then(function (data) {
                 vm.articles = data;
-                window.name = data[0].Id;
-                if (data[0].Id < 6) {
+                if (data.length < 6) {
                     vm.display_button = "false";
                 } else {
                     vm.display_button = "true";
                 }
-                    angular.forEach(vm.articles.title, function(title) {
-                        title.replace(/\s+/g, '-').toLowerCase();
-                        vm.title_link.push(title);      
-                    });
-
-                return vm.articles;
-            })
-                .error(function () {
-                    var msg = 'Error' + error.message;
-                    throw error;
-                });
+                vm.setspinner1 = true;
+                    return vm.articles;
+             });
         };
 
         vm.getMoreArticles = function () {
-            $http.get('/api/Values/GetRestoftheArticles').success(function (data) {
+            dbdata.getData('GetRestoftheArticles').then(function (data) {
                 vm.more_articles = data;
-                angular.forEach(vm.articles.title, function(title) {
-                    title.replace(/\s+/g, '-').toLowerCase();
-                    vm.title_link.push(title);
-                });
-                vm.display_button = "false";
-                vm.display_more_articles = "true";
-
+                vm.display_button = false;
+                vm.display_more_articles = true;
+                
                 return vm.more_articles;
-               
-            })
-               .error(function () {
-                   var msg = 'Error' + error.message;
-                   throw error;
-               });
+
+            });
         };
     }
 })();

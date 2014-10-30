@@ -8,10 +8,9 @@
 
     function topnav($route, config, routes) {
         var vm = this;
-
         vm.isCurrent = isCurrent;
+        vm.openmenu = false;
         activate();
-
         function activate() {
             getNavRoutes();
         }
@@ -29,7 +28,7 @@
             }
             var menuName = route.config.title;
             return $route.current.title.substr(0, menuName.length) === menuName ? 'current' : '';
-        }
+        }        
     };
 
 })();

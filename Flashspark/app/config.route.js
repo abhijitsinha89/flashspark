@@ -12,7 +12,8 @@
 
         routes.forEach(function (r) {
             $routeProvider.when(r.url, r.config);
-            $locationProvider.html5Mode('true').hashPrefix('!');
+            $locationProvider.html5Mode(true);
+
         });
         $routeProvider.otherwise({ redirectTo: '/' });
         
@@ -28,7 +29,7 @@
                     templateUrl: 'app/home/home.html',
                     settings: {
                         nav: 1,
-                        content: '<i class="icon-mybulb fa-2x site-bulb"></i>'
+                        content: '<i class="icon-mybulb fa-3x site-bulb"></i>'
                     }
                 }
             },
@@ -39,7 +40,7 @@
                     title: 'thoughts',
                     settings: {
                         nav: 2,
-                        content: '<i class="fa fa-book"></i> Thoughts'
+                        content: '<i class="fa fa-book"></i> <br /> Thoughts'
                     }
                 }
             }, {
@@ -49,7 +50,7 @@
                     templateUrl: 'app/about/about.html',
                     settings: {
                         nav: 3,
-                        content: '<i class="fa fa-info"></i> About'
+                        content: '<i class="fa fa-user"></i> <br /> About'
                     }
                 }
             },
@@ -60,7 +61,18 @@
                      title: 'timeline',
                      settings: {
                          nav: 4,
-                         content: '<i class="fa fa-arrows-h"></i> Timeline'
+                         content: '<i class="glyphicon glyphicon-tasks"></i> <br /> Timeline'
+                     }
+                 }
+             },
+             {
+                 url: '/contact',
+                 config: {
+                     templateUrl: 'app/contact/contact.html',
+                     title: 'timeline',
+                     settings: {
+                         nav: 5,
+                         content: '<i class="fa fa-comments-o"></i> <br /> Contact'
                      }
                  }
              },

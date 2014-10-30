@@ -28,11 +28,15 @@ namespace DB
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Article> Articles { get; set; }
     
-        public virtual ObjectResult<GetAllArticlesExceptTop5_Result> GetAllArticlesExceptTop5()
+        public virtual ObjectResult<Aboutme_Result> Aboutme()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllArticlesExceptTop5_Result>("GetAllArticlesExceptTop5");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Aboutme_Result>("Aboutme");
+        }
+    
+        public virtual ObjectResult<GetAllArticlesExceptTop6_Result> GetAllArticlesExceptTop6()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllArticlesExceptTop6_Result>("GetAllArticlesExceptTop6");
         }
     
         public virtual ObjectResult<GetArticle_Result> GetArticle(string getArticleTitle)
@@ -56,6 +60,21 @@ namespace DB
                 new ObjectParameter("GetArticleId", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("NavigateArticles", getArticleIdParameter);
+        }
+    
+        public virtual ObjectResult<ViewAllFaq_Result> ViewAllFaq()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ViewAllFaq_Result>("ViewAllFaq");
+        }
+    
+        public virtual ObjectResult<ViewCurrentCity_Result> ViewCurrentCity()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ViewCurrentCity_Result>("ViewCurrentCity");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> GetAllCountArticle()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("GetAllCountArticle");
         }
     }
 }

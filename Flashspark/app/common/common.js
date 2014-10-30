@@ -13,13 +13,14 @@
     });
 
     commonModule.factory('common',
-        ['$rootScope', '$timeout', 'commonConfig', 'logger', common]);
+        ['$q', '$rootScope', '$timeout', 'commonConfig', 'logger', common]);
 
-    function common($rootScope, $timeout, commonConfig, logger) {
+    function common($q, $rootScope, $timeout, commonConfig, logger) {
         var throttles = {};
 
         var service = {
             $broadcast: $broadcast,
+            $q: $q,
             $timeout: $timeout,
             activateController: activateController,
             createSearchThrottle: createSearchThrottle,
