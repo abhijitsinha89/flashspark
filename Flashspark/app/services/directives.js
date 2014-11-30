@@ -11,7 +11,7 @@
                 scope: { props: '=parseUrl', ngModel: '=ngModel',text: '@text', flag:'@flag' },
                 link: function compile(scope, element, attrs, controller) {
                     scope.$watch('ngModel', function (value) {
-                        var lower = value.replace(/\s+/g, '-').toLowerCase();
+                        var lower = value.replace(/\s+/g, '-').replace(',', '').replace(':', '').toLowerCase();
                         if(scope.flag == 1)
                             var final = lower.replace(lower, '<a href= /' + lower + '>' + scope.text + '</a>');
                         else
@@ -105,6 +105,31 @@
                 "</div>"
         };
     });
+
+    app.directive('fixedHeader', function () {
+        return {
+            restrict: 'E',
+            replace: true,
+            transclude: true,
+            template: "<div class='fixedheader' ng-transclude ng-cloak></div>"
+        };
+    });
+
+    app.directive('movableContent', function () {
+        return {
+            restrict: 'E',
+            replace: true,
+            transclude: true,
+            //link: function(scope, element, attrs) {
+            //    element.ready(function(){
+            //        var headerheight = $('.fixedheader').outerHeight();
+            //        $('.movablecontent').css('margin-top', headerheight);
+            //    });
+            //},
+            template: "<div class='movablecontent' ng-transclude></div>"
+        };
+    });
+
     app.filter('unsafe', function ($sce) {
         return function (val) {
             return $sce.parseAsHtml($sce.HTML,val);

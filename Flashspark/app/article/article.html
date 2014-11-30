@@ -1,21 +1,34 @@
 ﻿<section id="article-view" class="article-panel" data-ng-controller="article as vm">
-    <h1 class="center-block text-center section-title">{{::vm.pageheader}}</h1>
-    <hr class="line" /> 
-    <div ng-data-bind="maxId"></div>
-    <div data-ng-repeat="s in vm.articles" class="row">
-        <div class="col-md-9 col-sm-9 article-body-panel center-block">
-            <em class="text-center timestamp">{{::s.DatePosted}}</em>
-            <p class="article-body" data-ng-bind-html="::vm.body"></p>
-            <hr />
-            <div data-ng-show="vm.displayback" data-ng-click="vm.back(vm.navigatearticle_previous)" id="backarrow"><i class="fa fa-1x fa-caret-left pull-left"></i><span class="pull-left">{{vm.navigatearticle_previous}}</span></div>
-            <div data-ng-show="vm.displayforward" data-ng-click="vm.forward(vm.navigatearticle_next)" id="forwardarrow"><i class="fa fa-1x fa-caret-right pull-right"></i><span class="pull-right">{{vm.navigatearticle_next}}</span></div>
-        </div>
-        <div class="comment-box col-md-9 col-sm-9">
-            <dir-disqus disqus-shortname="flashspark"
-                        disqus-identifier={{s.Title}}
-                        disqus-url="{{ vm.url }}"
-                        ready-to-bind="true">
-            </dir-disqus>
-        </div>
-    </div>
+    <fixed-header>
+        <h1 class="center-block text-center section-title"><i class="fa fa-book fa-1x text-center hidden-sm hidden-xs"></i><br />{{::vm.pageheader}}</h1>
+    <hr class="line" />
+        </fixed-header>
+           <movable-content>
+                <div data-ng-repeat="s in vm.articles" class="row">
+                    <div class="col-md-9 col-sm-9 article-body-panel center-block">
+                        <em class="text-center timestamp">{{::s.DatePosted}}</em>
+                        <p class="article-body" data-ng-bind-html="::vm.body"></p>
+                        <hr />
+                        <div class="row">                            
+                            <div class="col-md-6" data-ng-show="vm.displayback" data-ng-click="vm.back(vm.navigatearticle_previous)" id="backarrow"><i class="fa fa-1x fa-caret-left pull-left"></i><span class="pull-left">{{vm.navigatearticle_previous}}</span></div>
+                            <div class="col-md-6" data-ng-show="vm.displayforward" data-ng-click="vm.forward(vm.navigatearticle_next)" id="forwardarrow"><i class="fa fa-1x fa-caret-right pull-right"></i><span class="pull-right">{{vm.navigatearticle_next}}</span></div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a href="/thoughts"><i class="fa fa-book fa-1x text-center"></i> &nbsp Back to Journal Entries</a>
+                            </div>
+                        </div>
+                        <hr />
+                    </div>
+                    
+                    <div class="comment-box col-md-9 col-sm-9">
+                        <dir-disqus disqus-shortname="flashspark"
+                                    disqus-identifier={{s.Title}}
+                                    disqus-url="http://flashspark.in/{{ vm.url }}"
+                                    ready-to-bind="true">
+                        </dir-disqus>
+                    </div>
+                </div>
+            </movable-content>
 </section>

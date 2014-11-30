@@ -1,9 +1,9 @@
 ﻿(function () {
     'use strict';
     var controllerId = 'article';
-    angular.module('app').controller(controllerId, ['$rootScope', '$routeParams', '$location', '$http', '$sce', 'common','dbdata', article]);
+    angular.module('app').controller(controllerId, ['$rootScope', '$routeParams', '$location', '$http', '$sce', 'common', article]);
 
-    function article($rootScope, $routeParams, $location, $http,$sce, common, dbdata) {
+    function article($rootScope, $routeParams, $location, $http,$sce, common) {
         var articleTitleParams = $routeParams.article.replace(/-/g, ' '),
             articletitleUpper = articleTitleParams.substring(0, 1).toUpperCase() + articleTitleParams.substring(1),
             vm = this;
@@ -12,7 +12,7 @@
         vm.navigatearticle_previous = [];
         vm.pageheader = articletitleUpper;
         $rootScope.title = articletitleUpper + " | Flashspark-Abhijit Sinha";
-        vm.url = $rootScope.location;
+        vm.url = $routeParams.article;
 
         activate();
         vm.contentLoaded = false;
@@ -59,15 +59,15 @@
         function setNavigationArrow(articleIdSetarrow) {
             $http.get('/api/Values/GetAllArticleCount', { cache: true }).success(function (data) {
 
-           if (articleIdSetarrow == 1 && data == 1) {
+           if (articleIdSetarrow === 1 && data === 1) {
                 vm.displayforward = false;
                 vm.displayback = false;
            }
-           else if (articleIdSetarrow == 1 && data > 1) {
+           else if (articleIdSetarrow === 1 && data > 1) {
                vm.displayforward = true;
                vm.displayback = false;
            }
-           else if (data == articleIdSetarrow) {
+           else if (data === articleIdSetarrow) {
                 vm.displayforward = false;
                 vm.displayback = true;
             } else {

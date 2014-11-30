@@ -1,27 +1,29 @@
 ﻿<section id="thoughts-view" class="article-summary-panel"  data-ng-controller="thoughts as vm">
-    
-     <h1 class="center-block text-center section-title">{{::vm.pageheader}}</h1>
-    
-    <hr class="line"/>
+    <fixed-header>
+        <h1 class="center-block text-center section-title"><i class="fa fa-book fa-1x text-center hidden-sm hidden-xs"></i><br />{{::vm.pageheader}}</h1>
+        <hr class="line" />
+    </fixed-header>
+    <movable-content>
     <div class="article-summary-container">
-        {{vm.test}}
-        <i class="fa fa-4x fa-spin fa-spinner loading-icon" data-ng-hide=vm.setspinner1 data-ng-cloak></i>
-        <div data-ng-repeat="s in vm.articles" class="row img-responsive">
-            <div class="col-md-9 articlesummary center-block text-center">
-                <div class="article-summary-header-panel center-block text-center">
-                    <h3 setcleanurl="props" data-ng-model="::s.Title" text={{::s.Title}} flag="1" style="display:block" class="center-block text-center"></h3>
-                    <em class="timestamp">{{::s.DatePosted}}</em>
+        <i class="fa fa-4x fa-cog loading-icon fa-spin" data-ng-hide=vm.setspinner1 data-ng-cloak></i>
+        <div class="first-load-article-set" data-ng-show=vm.setspinner1>
+            <div data-ng-repeat="s in vm.articles" class="row img-responsive">
+                <div class="col-md-9 articlesummary center-block text-center">
+                    <div class="article-summary-header-panel center-block text-center">
+                        <h3 setcleanurl="props" data-ng-model="::s.Title" text={{::s.Title}} flag="1" style="display:block" class="center-block text-center"></h3>
+                        <em class="timestamp">{{::s.DatePosted}}</em>
+                    </div>
+                    <hr class="text-center" />
+                    <br />
+                    <p style="margin-top:5px" data-ng-bind-html="::s.Description"></p>
+                    <p setcleanurl="props" data-ng-model="::s.Title" text="...Read More" flag="0"></p>
                 </div>
-                <hr class="text-center" />
-                <br />
-                <p style="margin-top:5px" data-ng-bind-html="::s.Description"></p>
-                <p setcleanurl="props" data-ng-model="::s.Title" text="...Read More" flag="0"></p>
             </div>
+            <button class="btn btn-block btn-default btn-morearticles center-block" data-ng-click="vm.getMoreArticles()" data-ng-show="vm.display_button">
+                View More Articles
+            </button>
         </div>
-        <button class="btn btn-block btn-default btn-morearticles center-block" data-ng-click="vm.getMoreArticles()" data-ng-show={{vm.display_button}}>
-            View More Articles
-        </button>
-        <i class="fa fa-4x fa-spin fa-spinner loading-icon" data-ng-hide=vm.setspinner2 data-ng-cloak></i>
+        <i class="fa fa-4x fa-spin fa-cog loading-icon" data-ng-hide=vm.setspinner2 data-ng-cloak></i>
         <div data-ng-repeat="s in vm.more_articles" class="row img-responsive" data-ng-show={{vm.display_more_articles}}>
             <div class="col-md-9 articlesummary center-block text-center">
                 <div class="article-summary-header-panel center-block text-center">
@@ -35,4 +37,5 @@
             </div>
         </div>
     </div>
+        </movable-content>
 </section>

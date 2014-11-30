@@ -92,11 +92,28 @@ My motivation is a bit simpler, learning to code and actually getting my hands d
 I remember while building this website, one day while coming home I saw a bunch of clouds and the first thing that popped into my head was is there a way to design clouds with this precision. After searching for a while on the internet I came across a bunch of ways to do it and within a couple of hours my digitized cloud was ready! Those were the early and my God, I was elated!
 Fast forwarding to now, there have been loads of such moments and I know my inspiration to code and deciding on the path my career should go, lies in the pure joy of visualizing a scenario or object and digitizing it.
 Please allow me to describe this transition in the corniest way: what started as a way of coding to live and has quietly and remarkably turned into living to code!!
+',5)
+
+insert into Articles values( DEFAULT, '"Why am I writing on a such a topic?" For a very simple reason, it is fascinating and often told in a wrong way!. Growing up in India the choice of subjects comes only in the last two years of schooling, which in my personal opinion is a bit late and with the added pressure of finding a good college and career, the essence or the beauty of the subject is lost. And I have often seen the fear of God in the eyes of students when the name of Physics is echoed in a room filled with them! Which is in a way correct since Phyiscs does explains some Godly phenomenons although as Einstein famously said "I, at any rate, am convinced that He does not throw dice" What compelled him to say that?',
+'hello hello yes oh boy!', 'I wanted to start this blog with a very fundamental question that I have been asking myself for quite some time
+“Why to Code!”
+Growing up in a country like India, which has become a hot bed for software engineers in the past decade. And on the top of that, if you find yourself living in one of the IT hubs of the country, there will to be code everywhere!
+So, what is the motivation to get up, go to office and code!!
+There is no true answer here and I am not looking for one as it is a “to each their own scenario”.
+ It could be just another type of work to pay the bills or motivation to find solutions that can help in building a more connected world, there can be a myriad of reasons and I suppose if I go out and meet more people there is no dearth of enthusiasm.  
+My motivation is a bit simpler, learning to code and actually getting my hands dirty has made realize one thing, coding is fun! It’s about getting that sense of accomplishment that in this digitized world, you can see through the eyes of code!
+I remember while building this website, one day while coming home I saw a bunch of clouds and the first thing that popped into my head was is there a way to design clouds with this precision. After searching for a while on the internet I came across a bunch of ways to do it and within a couple of hours my digitized cloud was ready! Those were the early and my God, I was elated!
+Fast forwarding to now, there have been loads of such moments and I know my inspiration to code and deciding on the path my career should go, lies in the pure joy of visualizing a scenario or object and digitizing it.
+Please allow me to describe this transition in the corniest way: what started as a way of coding to live and has quietly and remarkably turned into living to code!!
 ',5) 
 
 select * from Articles
 
+delete Articles
+
 drop table Articles
+
+DBCC CHECKIDENT('Articles', RESEED, 0)
 /*---------------------------------------------------------------------ARTICLES PROC----------------------------------------------------------------------------------*/
 /*Insert Articles*/
 create proc [dbo].[InsertArticles]
@@ -135,6 +152,15 @@ create proc [dbo].[GetArticle]
 begin 
 select Id,Title,DatePosted,Body from Articles where Title = @GetArticleTitle;
  end
+/*--------------------------------------*/
+/*Get total number of articles*/
+create proc [dbo].[GetAllCountArticle]
+ as
+begin 
+select count (*) from Articles;
+ end
+
+ exec [GetAllCountArticle]
 /*--------------------------------------*/
 /*Navigate between Articles*/
 create proc [dbo].[NavigateArticles]

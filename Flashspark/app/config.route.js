@@ -12,7 +12,7 @@
 
         routes.forEach(function (r) {
             $routeProvider.when(r.url, r.config);
-            $locationProvider.html5Mode(true);
+            $locationProvider.html5Mode(true).hashPrefix('!');
 
         });
         $routeProvider.otherwise({ redirectTo: '/' });
@@ -29,7 +29,7 @@
                     templateUrl: 'app/home/home.html',
                     settings: {
                         nav: 1,
-                        content: '<i class="icon-mybulb fa-3x site-bulb"></i>'
+                        content: '<i class="bulb-mybulb fa-3x site-bulb"></i>'
                     }
                 }
             },
@@ -72,7 +72,7 @@
                      title: 'timeline',
                      settings: {
                          nav: 5,
-                         content: '<i class="fa fa-comments-o"></i> <br /> Contact'
+                         content: '<i class="fa emo-newspaper transparent"></i> <br /> Contact'
                      }
                  }
              },

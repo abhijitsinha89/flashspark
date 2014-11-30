@@ -1,23 +1,27 @@
 ﻿<section id="dashboard-view" class="about-panel center-block" data-ng-controller="about as vm" >
-        <h1 class="center-block text-center section-title">{{::vm.pageheader}}</h1>
-    <hr class="line" /> 
-   
+    <fixed-header>
+
+        <h1 class="center-block text-center section-title"><i class="fa fa-user fa-1x text-center hidden-sm hidden-xs"></i><br />{{::vm.pageheader}}</h1>
+        <hr class="line" />
+        </fixed-header>
+    <movable-content>
     <div class="about-faq">
         <div class="row">
             <div class="img-responsive about-photo col-lg-4 text-center center-block">
                 <img src="/Content/self.jpg" />
             </div>
             <div class="col-lg-8 about-random-line">
-                Hi, As you might have guessed after opening this site, I am Abhijit and I like making things for the web. So if you are interested in knowing a bit more about me, SOMEBODY <i class="fa fa-smile-o"></i>
+                Hi, As you might have guessed after opening this site that I like making things for the web. So if you are interested in knowing a bit more about me, SOMEBODY <i class="emo-tongue"></i>
                 compiled a Q & A that consists of some life altering answers!
             </div>
         </div>
         <div id="faq-panel">
             <div data-ng-repeat="s in vm.faq">
                 <p class="faq-header" data-ng-bind-html="vm.trustAsHtml(s.Question)"></p>
-                <p class="faq-answer"data-ng-bind-html="vm.trustAsHtml(s.Answer)"></p>
+                <p class="faq-answer" data-ng-bind-html="vm.trustAsHtml(s.Answer)"></p>
                 <hr class="text-center" />
             </div>
         </div>
     </div>
+        <movable-content>
 </section>

@@ -9,6 +9,7 @@
         vm.pageheader = "The linearity of time";
         $rootScope.title = "Yearbook | Flashspark-Abhijit Sinha";
         vm.trustAsHtml = $sce.trustAsHtml;
+        vm.updatework = false;
         activate();
 
         function activate() {

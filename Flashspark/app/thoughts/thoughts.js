@@ -7,10 +7,11 @@
         var vm = this;
         vm.articles = [];
         vm.more_articles = [];
+        vm.display_button = false;
         vm.display_more_articles = "false";
         vm.setspinner1 = true;
         vm.setspinner2 = true;
-        vm.display_button = "false";
+
         vm.pageheader = "A pinch of salt and some nimbu paani";
         $rootScope.title = "Journal | Flashspark-Abhijit Sinha";
         activate();
@@ -23,26 +24,23 @@
         function getArticles() {
             vm.setspinner1 = false;
             dbdata.getData('GetTopArticles').then(function (data) {
-                vm.test = data.length;
-                vm.articles = data;
-                if (data.length < 1) {
-                    vm.display_button = "false";
-                    alert('false');
-                } else {
-                    vm.display_button = "true";
-                    alert(vm.display_button);
+                if (data.length >= 6) {
+                    vm.display_button = true;
                 }
+                vm.articles = data;
+
                 vm.setspinner1 = true;
                     return vm.articles;
              });
         };
 
         vm.getMoreArticles = function () {
+            vm.setspinner2 = false;
+            vm.display_button = false;
             dbdata.getData('GetRestoftheArticles').then(function (data) {
-                vm.more_articles = data;
-                vm.display_button = false;
+                vm.more_articles = data;              
                 vm.display_more_articles = true;
-                
+                vm.setspinner2 = true;
                 return vm.more_articles;
 
             });

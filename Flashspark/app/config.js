@@ -32,4 +32,8 @@
         cfg.config.controllerActivateSuccessEvent = config.events.controllerActivateSuccess;
     }]);
     //#endregion
+
+    app.config(['$animateProvider', function($animateProvider) {
+      $animateProvider.classNameFilter(/^((?!(fa-cog)).)*$/)   
+    }]);
 })();

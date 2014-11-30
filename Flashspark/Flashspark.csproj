@@ -170,7 +170,6 @@
     <Content Include="app\config.exceptionHandler.js" />
     <Content Include="app\config.js" />
     <Content Include="app\config.route.js" />
-    <Content Include="app\layout\autoresize.js" />
     <Content Include="app\layout\footer.html" />
     <Content Include="app\layout\topnav.js" />
     <Content Include="app\services\data.js" />
@@ -186,16 +185,23 @@
     <Content Include="app\about\about.js" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bulb-font.css" />
-    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\emoticons.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\self.jpg" />
     <Content Include="Content\site.css" />
+    <Content Include="Content\timeline-images\bearded-penguins.PNG" />
+    <Content Include="Content\timeline-images\flashspark.old.png" />
+    <Content Include="Content\timeline-images\flashspark.png" />
+    <Content Include="Content\timeline-images\generic-photo.png" />
+    <Content Include="Content\timeline-images\hummingnest.png" />
+    <Content Include="Content\timeline-images\scrollkart.png" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\bulbpack.svg" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\icomoon.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
@@ -213,6 +219,9 @@
     <Content Include="fonts\bulbpack.eot" />
     <Content Include="fonts\bulbpack.ttf" />
     <Content Include="fonts\bulbpack.woff" />
+    <Content Include="fonts\icomoon.eot" />
+    <Content Include="fonts\icomoon.ttf" />
+    <Content Include="fonts\icomoon.woff" />
     <None Include="Properties\PublishProfiles\WebPub.pubxml" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -232,11 +241,10 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Scripts\_references.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\images\" />

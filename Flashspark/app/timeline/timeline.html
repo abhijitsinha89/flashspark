@@ -1,51 +1,72 @@
 ﻿<!--<script>
-    SetDivColor();
-
-    function SetDivColor() {
         var colorarray = ['#049cdb', '#46a546', '#f89406', '#c3325f', '#7a43b6', '#c09853', '#b94a48', '#3a87ad', '#e7a61a'];
-
-        var i = 0;
-        $('.timeline-panel').each(function () {
-            $(this).css('background-color', colorarray[i]);
-            i = (i + 1) % colorarray.length;
-        });
-    }
 </script>-->
 
 <section id="dashboard-view" class="timeline-panel" data-ng-controller="timeline as vm">
-    <h1 class="center-block text-center section-title">{{::vm.pageheader}}</h1>
+    <fixed-header>
+
+        <h1 class="center-block text-center section-title"><i class="glyphicon glyphicon-tasks fa-1x text-center center-block hidden-sm hidden-xs"></i><br />{{::vm.pageheader}}</h1>
     <hr class="line" />
-    <div class="timeline-container">
-        <div>
-            <ul ng-init="tab = 2014" class="timeline-year-container">
-                <li ng-class="{active:tab===2014}" ng-click="tab = 2014" class="circle-increase-effect timeline-year">2014</li>
-                <li ng-class="{active:tab===2013}" ng-click="tab = 2013" class="circle-increase-effect timeline-year">2013</li>
-                <li ng-class="{active:tab===2012}" ng-click="tab = 2012" class="circle-increase-effect timeline-year">2012</li>
-                <li ng-class="{active:tab==='Daysofyore'}" ng-click="tab = 'Daysofyore'" class="circle-increase-effect timeline-year">Days of yore!</li>
-            </ul>
-        </div>
-        <span class="col-md-offset-1">UPDATES</span>
-        <span class="col-md-offset-7">WORK</span>
-        <ul class="timeline-detail-container">
-            <li class="timeline-detail row" data-ng-repeat="s in vm.timeline" ng-show="tab == s.Year">
-                <div class="col-md-7 timeline-updates">
-                    <div data-ng-repeat="t in s.Updates">
-                        <div data-ng-bind-html="vm.trustAsHtml(t.Description)"></div>
-                        <hr />
+        </fixed-header>
+
+            <movable-content>
+                <div class="timeline-container row">
+                    <div class="col-md-2 hidden-sm hidden-xs">
+                        <ul ng-init="tab = 2014" class="timeline-year-container">
+                            <li ng-class="{active:tab===2014}" ng-click="tab = 2014" class="circle-increase-effect timeline-year">2014</li>
+                            <li ng-class="{active:tab===2013}" ng-click="tab = 2013" class="circle-increase-effect timeline-year">2013</li>
+                            <li ng-class="{active:tab===2012}" ng-click="tab = 2012" class="circle-increase-effect timeline-year">2012</li>
+                            <li ng-class="{active:tab==='Daysofyore'}" ng-click="tab = 'Daysofyore'" class="circle-increase-effect timeline-year">Days of yore!</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-11 hidden-lg hidden-md">
+                        <ul ng-init="tab = 2014" class="timeline-year-container">
+                            <li ng-class="{active:tab===2014}" ng-click="tab = 2014" class="timeline-year">2014</li>
+                            <li ng-class="{active:tab===2013}" ng-click="tab = 2013" class="timeline-year">2013</li>
+                            <li ng-class="{active:tab===2012}" ng-click="tab = 2012" class="timeline-year">2012</li>
+                            <li ng-class="{active:tab==='Daysofyore'}" ng-click="tab = 'Daysofyore'" class="timeline-year">Days of yore!</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-10">
+                        <span class="col-md-offset-5" data-ng-show="vm.updatework">WORK</span>
+                        <span class="col-md-offset-5" data-ng-hide="vm.updatework">UPDATES</span>
+                        <ul class="timeline-detail-container">
+                            <li class="timeline-detail row" data-ng-repeat="s in vm.timeline" ng-show="tab == s.Year">
+                                <div class="col-md-11 timeline-updates" data-ng-hide=vm.updatework>
+                                    <div data-ng-repeat="t in s.Updates">
+                                        <div data-ng-bind-html="vm.trustAsHtml(t.Description)"></div>
+                                        <hr />
+                                    </div>
+                                </div>
+                                <div class="col-md-1 updatework update" data-ng-hide="vm.updatework" data-ng-click="vm.updatework = true">
+                                    <i class="fa fa-share-square-o fa-2x"></i>
+                                    <br />
+                                    <strong>  WORK </strong>
+                                </div>
+                                <div class="col-md-1 updatework work" data-ng-show="vm.updatework" data-ng-click="vm.updatework = false">
+                                    <i class="fa fa-share-square-o fa-2x"></i>
+                                    <br />
+                                    <strong>  UPDATES </strong>
+                                </div>
+                                <div class="col-md-11 timeline-work" data-ng-show="vm.updatework">
+                                    <ul>
+                                        <li class="work-tile col-md-6 img-responsive" data-ng-click="vm.Overlay(u.id)" data-ng-repeat="u in s.Work">
+                                            <img class="image-thumbnail" ng-src={{u.ImgURL}} />
+                                            <div class="img-overlay center-block text-center">
+                                                <i class="fa fa-eye"></i>
+                                                <br />
+                                                <strong>{{u.title}}</strong>
+                                            </div>
+
+                                        </li>
+                                        <work-overlay show='vm.ShowOverlay'>
+                                            <div data-ng-include="'/app/timeline/workOverlay.html'"></div>
+                                        </work-overlay>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-md-5 timeline-work">
-                    <ul>
-                        <li class="img-responsive" data-ng-click="vm.Overlay(u.id)" data-ng-repeat="u in s.Work">
-                            <img class="image-thumbnail" ng-src={{u.ImgURL}} />
-                            
-                        </li>
-                        <work-overlay show='vm.ShowOverlay'>
-                            <div data-ng-include="'/app/timeline/workOverlay.html'"></div>
-                        </work-overlay>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </div>
+            </movable-content>
 </section>

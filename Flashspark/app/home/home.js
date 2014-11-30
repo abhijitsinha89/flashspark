@@ -10,5 +10,9 @@
             common.activateController([], controllerId);
         }
 
+        function setheight() {
+            
+        }
+
     }
 })();
